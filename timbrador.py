@@ -9,19 +9,12 @@ import sha
 import os
 import re
 
-from mail import mail
-
-
-from xml.dom.minidom import parse
-
-import sys
-import getopt
-
 import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
-input_url = "/home/sebastianavina/prueba.gnucash"
+import config
+input_url = config.archivo
 
 try:
     session = gnucash.Session(input_url,ignore_lock=True)
