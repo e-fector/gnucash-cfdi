@@ -1,0 +1,16 @@
+;; Object facturacion_moderna/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "facturacion_moderna/"
+  :tables (list 
+   (semanticdb-table "facturacion_moderna.py"
+    :major-mode 'python-mode
+    :tags '(("os" include nil (dependency-file none) [19 28]) ("base64" include nil (dependency-file none) [29 42]) ("suds" include nil (dependency-file none) [43 68]) ("suds.client" include nil (dependency-file none) [69 99]) ("lxml" include nil (dependency-file none) [100 128]) ("logging" include nil (dependency-file none) [129 143]) ("Cliente" type (:members (("__init__" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [175 179]) ("url" variable nil (reparse-symbol function_parameters) [181 184]) ("opciones" variable nil (reparse-symbol function_parameters) [186 194]) ("debug" variable nil (reparse-symbol function_parameters) [201 206]))) (reparse-symbol indented_block_body) [162 464]) ("timbrar" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [479 483]) ("src" variable nil (reparse-symbol function_parameters) [485 488]) ("opciones" variable nil (reparse-symbol function_parameters) [490 498]))) (reparse-symbol indented_block_body) [467 1966]) ("cancelar" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [1982 1986]) ("uuid" variable nil (reparse-symbol function_parameters) [1988 1992]))) (reparse-symbol indented_block_body) [1969 2810]) ("activarCancelacion" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [2836 2840]) ("archCer" variable nil (reparse-symbol function_parameters) [2842 2849]) ("archKey" variable nil (reparse-symbol function_parameters) [2851 2858]) ("passKey" variable nil (reparse-symbol function_parameters) [2860 2867]))) (reparse-symbol indented_block_body) [2813 4069]) ("_activa_debug" function (:arguments (("self" variable nil (reparse-symbol function_parameters) [4090 4094]))) (reparse-symbol indented_block_body) [4072 4452])) :type "class") nil [145 4452]))
+    :file "facturacion_moderna.py"
+    :pointmax 4459
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )
