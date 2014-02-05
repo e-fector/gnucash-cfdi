@@ -1,4 +1,5 @@
 *.py[cod]
+*.py~
 
 # C extensions
 *.so
@@ -21,6 +22,7 @@ __pycache__
 
 # Installer logs
 pip-log.txt
+semantic.cache
 
 # Unit test / coverage reports
 .coverage
