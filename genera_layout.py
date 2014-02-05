@@ -1,20 +1,11 @@
-def genera_layout(emisor, repector, factura, lineas_factura):
+# encoding: utf-8
+
+import config
+
+def genera_layout(repector=None, factura=None, lineas_factura=[]):
   # se calcula la fecha de emision en formato ISO 8601
 
-  encabezado_factura = {
-      "fecha_factura" : "2014-01-01T15:15:19.390390",
-      "emisor_rfc" : emisor[0]["vat"][2:],
-      "emisor_nombre" :  "Rectificaciones Avina",#emisor[0]["name"],
-      "emisor_regimen_fiscal" : "PENDIENTE",
-      "forma_de_pago" : "PAGO EN UNA SOLA EXHIBICIoN",
-      "metodo_de_pago" : "Transferencia electronica",
-      "condiciones" : "Contado",
-      "NumCtaPago" : "No Identificado",
-      "lugarDeExpedicion" : "Durango, DGO. MX"
-      }
-
   encabezado = unicode("""[Encabezado]
-
 serie|
 fecha|{fecha_factura}
 folio|
@@ -29,7 +20,10 @@ total|11.60
 Moneda|MXN
 noCertificado|
 LugarExpedicion|{lugarDeExpedicion}
+""","utf-8").format(**config.emisor)
+  print encabezado
 
+  encabezado += unicode("""
 [Datos Adicionales]
 
 tipoDocumento|Factura
@@ -106,3 +100,5 @@ tasa|16.00
 
 
   return cfdi #.encode('ascii', "ignore");
+
+genera_layout()
