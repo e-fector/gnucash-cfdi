@@ -13,8 +13,9 @@ import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
-import config
-input_url = config.archivo
+from config import Configuraciones
+conf = Configuraciones()
+input_url = conf.return_archivo()
 
 try:
     session = gnucash.Session(input_url,ignore_lock=True)
@@ -25,7 +26,8 @@ except Exception as exception:
 factura = session.book.InvoiceLookupByID("125")
 
 #emisor
-print dir(session)
+conf.agrega_cta_pago(factura.GetOwner().GetAddr().GetFax())
+conf.agrega_metodo_de_pago(factura.GetOwner().GetNotes())
 
 #receptor
 print factura.GetOwner().GetName()
@@ -36,11 +38,14 @@ print factura.GetOwner().GetAddr().GetAddr4()
 print factura.GetOwner().GetAddr().GetEmail()   
 
 #print dir(factura)
+fecha = factura.GetDatePosted()
+conf.agrega_fecha_factura(fecha.isoformat())
+
 print factura.GetNotes()
 print factura.GetTotalTax()
 print factura.GetTotalSubtotal()
 print factura.GetTotal()
-print factura.GetTerms().GetName()
+conf.agrega_condiciones_de_pago(factura.GetTerms().GetName())
 
 for concepto in factura.GetEntries():
     www = Entry(instance=concepto)

@@ -20,8 +20,7 @@ total|11.60
 Moneda|MXN
 noCertificado|
 LugarExpedicion|{lugarDeExpedicion}
-""","utf-8").format(**config.emisor)
-  print encabezado
+""","utf-8").format(**config.encabezado)
 
   encabezado += unicode("""
 [Datos Adicionales]
@@ -58,6 +57,11 @@ estado|Nuevo León
 pais|México
 codigoPostal|77000
 
+""","utf-8").format(**config.encabezado)
+
+  encabezado += unicode("""
+
+
 [Receptor]
 rfc|XAXX010101000
 nombre|PÚBLICO EN GENERAL
@@ -78,7 +82,7 @@ codigoPostal|66260
 noCliente|09871
 email|edgar.duran@facturacionmoderna.com
 
-""","utf-8").format(**encabezado_factura)
+""","utf-8").format(**config.return_receptor())
 
   cfdi = encabezado + unicode("""
 [Concepto]
@@ -101,4 +105,3 @@ tasa|16.00
 
   return cfdi #.encode('ascii', "ignore");
 
-genera_layout()
