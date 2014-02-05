@@ -1,0 +1,21 @@
+;; Object gnucash-cfdi/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "gnucash-cfdi/"
+  :tables (list 
+   (semanticdb-table "timbrador.py"
+    :major-mode 'python-mode
+    :tags '(("facturacion_moderna" include nil nil [20 71]) ("datetime" include nil nil [72 101]) ("base64" include nil nil [102 115]) ("M2Crypto" include nil nil [116 140]) ("lxml" include nil nil [141 169]) ("sha" include nil nil [170 180]) ("os" include nil nil [181 190]) ("re" include nil nil [191 200]) ("mail" include nil nil [202 223]) ("print" code nil nil [225 246]))
+    :file "timbrador.py"
+    :pointmax 247
+    )
+   (semanticdb-table "mail.py"
+    :major-mode 'python-mode
+    :tags '(("smtplib" include nil nil [1 15]) ("email.MIMEMultipart" include nil nil [16 61]) ("email.MIMEBase" include nil nil [62 97]) ("email.MIMEText" include nil nil [98 133]) ("email" include nil nil [134 160]) ("os" include nil nil [161 170]) ("gmail_user" variable nil nil [172 187]) ("gmail_pwd" variable nil nil [188 202]) ("mail" function (:arguments (("to" variable nil (reparse-symbol function_parameters) [213 215]) ("subject" variable nil (reparse-symbol function_parameters) [217 224]) ("text" variable nil (reparse-symbol function_parameters) [226 230]) ("attach1" variable nil (reparse-symbol function_parameters) [232 239]) ("attach2" variable nil (reparse-symbol function_parameters) [241 248]))) nil [204 1235]))
+    :file "mail.py"
+    :pointmax 1236
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )
