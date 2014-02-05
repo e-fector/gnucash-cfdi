@@ -4,9 +4,10 @@
   :tables (list 
    (semanticdb-table "timbrador.py"
     :major-mode 'python-mode
-    :tags '(("facturacion_moderna" include nil nil [20 71]) ("datetime" include nil nil [72 101]) ("base64" include nil nil [102 115]) ("M2Crypto" include nil nil [116 140]) ("lxml" include nil nil [141 169]) ("sha" include nil nil [170 180]) ("os" include nil nil [181 190]) ("re" include nil nil [191 200]) ("mail" include nil nil [202 223]) ("print" code nil nil [225 246]))
+    :tags '(("facturacion_moderna" include nil nil [20 71]) ("datetime" include nil nil [72 101]) ("base64" include nil nil [102 115]) ("M2Crypto" include nil nil [116 140]) ("lxml" include nil nil [141 169]) ("sha" include nil nil [170 180]) ("os" include nil nil [181 190]) ("re" include nil nil [191 200]) ("mail" include nil nil [202 223]) ("xml.dom.minidom" include nil nil [226 259]) ("sys" include nil nil [261 271]) ("getopt" include nil nil [272 285]) ("gnucash" include nil nil [287 301]) ("gnucash.gnucash_business" include nil nil [302 471]) ("input_url" variable nil nil [473 522]) ("print" code nil nil [723 757]) ("print" code nil nil [758 803]) ("print" code nil nil [807 852]) ("print" code nil nil [856 901]) ("print" code nil nil [905 950]) ("for" code nil nil [976 1558]) ("print" code nil nil [1575 1596]))
     :file "timbrador.py"
-    :pointmax 247
+    :pointmax 1597
+    :unmatched-syntax 'nil
     )
    (semanticdb-table "mail.py"
     :major-mode 'python-mode
