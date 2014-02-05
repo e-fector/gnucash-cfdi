@@ -19,8 +19,7 @@ import getopt
 
 import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
-    Address, Invoice, Entry, TaxTable, TaxTableEntry, GNC_AMT_TYPE_PERCENT, \
-    GNC_DISC_PRETAX
+    Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
 input_url = "/home/sebastianavina/prueba.gnucash"
 
@@ -30,15 +29,25 @@ except Exception as exception:
     print "Problem opening input."
     print exception
 
-factura = session.book.InvoiceLookupByID("124")
+factura = session.book.InvoiceLookupByID("125")
 
+#emisor
+print dir(session)
+
+#receptor
 print factura.GetOwner().GetName()
 print factura.GetOwner().GetAddr().GetAddr1()   
 print factura.GetOwner().GetAddr().GetAddr2()   
 print factura.GetOwner().GetAddr().GetAddr3()   
 print factura.GetOwner().GetAddr().GetAddr4()   
+print factura.GetOwner().GetAddr().GetEmail()   
 
 #print dir(factura)
+print factura.GetNotes()
+print factura.GetTotalTax()
+print factura.GetTotalSubtotal()
+print factura.GetTotal()
+print factura.GetTerms().GetName()
 
 for concepto in factura.GetEntries():
     www = Entry(instance=concepto)
@@ -51,7 +60,7 @@ for concepto in factura.GetEntries():
     print www.GetInvTaxable()
     print www.GetNotes()
     print www.GetOrder()
-    print dir(www)
+    #print dir(www)
     print gnucash.GncNumeric(instance=www.ReturnTaxValue(www.GetInvTaxable()))
     print gnucash.GncNumeric(instance=www.ReturnValue(www.GetInvTaxable()))
 
