@@ -14,8 +14,8 @@ from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
 from config import Configuraciones
-conf = Configuraciones()
-input_url = conf.return_archivo()
+
+input_url = self.archivo = "./gnucash/prueba.gnucash"
 
 try:
     session = gnucash.Session(input_url,ignore_lock=True)

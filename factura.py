@@ -1,56 +1,84 @@
 # encoding: utf-8
 
-class Configuraciones():
+from genera_layout import genera_layout
+
+class Factura():
 
     def __init__(self):
-        self.archivo = "./gnucash/prueba.gnucash"
-
+        """ Valores predeterminados """
+        
         self.encabezado = {
-            "lugarDeExpedicion":"Durango, DGO. MX",
-            "forma_de_pago":"Pago en una sola exhibicion",
+            "forma_de_pago":"Transferencia",
+            "metodo_de_pago":"Pago en una sola exhibicion",
+            "condiciones":"Contado",
+            "NumCtaPago":"1234",
+            "lugarDeExpedicion":"Victoria de Durango",
             }
         self.emisor = {
-            "emisor_rfc":"ESI920427886",
-            "emisor_nombre":"Empresa Emisora de CFDI SA de CV",
-            "emisor_regimen_fiscal":"Regimen general de personas morales",
+            "domicilio_calle":"Lic. Alberto Terrones Benitez #101 NTE",
+            "domicilio_noExterior":"101 NTE",
+            "domicilio_noInterior":"",
+            "domicilio_colonia":"Durango",
+            "domicilio_localidad":"Victoria de Durango",
+            "domicilio_municipio":"Durango",
+            "domicilio_estado":"Durango",
+            "domicilio_pais":"Mexico",
+            "domicilio_cp":"34000",
+            "expedidoen_calle":"Av. 20 de Noviembre",
+            "expedidoen_noExterior":"1002 Ote",
+            "expedidoen_noInterior":"",
+            "expedidoen_colonia":"Centro",
+            "expedidoen_localidad":"Victoria de Durango",
+            "expedidoen_municipio":"Durango",
+            "expedidoen_estado":"Durango",
+            "expedidoen_pais":"Mexico",
+            "expedidoen_cp":"34000",
+            "emisor_rfc":"RAV751222956",
+            "emisor_nombre":"Rectificaciones Avina SA de CV",
+            "regimen_fiscal":"Regimen general de personas morales",
             }
-        self.domicilioFiscal = {
-            "calle":"Lic. Alberto Terrones Benitez",
-            "noExterior":"101 NTE",
-            "noInterior":".",
-            "colonia":"Centro",
+        self.receptor = {
+            "rfc_receptor":"",
+            "nombre_fiscal":"",
+            "calle":"",
+            "noExterior":"",
+            "noInterior":"",
+            "colonia":"",
             "localidad":"",
-            "municipio":"Durango",
-            "estado":"Durango",
-            "pais":"Mexico",
-            "codigoPostal":"34000",
+            "municipio":"",
+            "estado":"",
+            "pais":"",
+            "cp":"",
+            "noCliente":"",
+            "email":"",
             }
-        self.expedidoEn = {
-            "calle":"Lic. Alberto Terrones Benitez",
-            "noExterior":"101 NTE",
-            "noInterior":".",
-            "colonia":"Centro",
-            "localidad":"",
-            "municipio":"Durango",
-            "estado":"Durango",
-            "pais":"Mexico",
-            "codigoPostal":"34000",
+        self.factura = {
+            "fecha_factura":"10-10-2010",
+            "serie":"A",
+            "folio":"123"
             }
+        self.lineas_factura = []
 
-    def return_encabezado(self):
-        return self.encabezado
+    def agrega_linea(self,cantidad,unidad,noIdentificacion,descripcion,valorUnitario, \
+                         importe,importe_impuesto,tasa):
+            self.lineas_factura.append( {
+                    "cantidad":cantidad,
+                    "unidad":unidad,
+                    "noIdentificacion":noIdentificacion,
+                    "descripcion":descripcion,
+                    "valorUnitario":valorUnitario,
+                    "importe":importe,
+                    "impuesto":impuesto,
+                    "importe_impuesto":importe_impuesto,
+                    "tasa":tasa,
+                    })
 
-    def return_archivo(self):
-        return self.archivo
+        
 
-    def agrega_metodo_de_pago(self, metodo):
-        self.encabezado["metodo_de_pago"] = metodo
+    def __str__(self):
+        return genera_layout(self.encabezado, self.receptor, self.factura, \
+                                 self.lineas_factura, self.emisor)
 
-    def agrega_cta_pago(self,cuenta):
-        self.encabezado["NumCtaPago"] = cuenta
-
-    def agrega_fecha_factura(self,fecha):
-        self.encabezado["fecha_factura"] = fecha
-
-    def agrega_condiciones_de_pago(self,condiciones):
-        self.encabezado["condiciones"] = condiciones
+    def __unicode__(self):
+        return genera_layout(self.encabezado, self.receptor, self.factura, \
+                                 self.lineas_factura, self.emisor)
