@@ -103,7 +103,7 @@ importe|{importe}
 [ImpuestoTrasladado]
 
 impuesto|{impuesto}
-importe|{importe}
+importe|{importe_impuesto}
 tasa|{tasa}
 ""","utf-8").format(**linea)
 
@@ -174,7 +174,7 @@ if __name__ == '__main__':
         "valorUnitario":"10.00",
         "importe":"10.00",
         "impuesto":"IVA",
-        "importe":"1.60",
+        "importe_impuesto":"1.60",
         "tasa":"16.00",
         })
 
