@@ -13,7 +13,7 @@ import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
-from config import Configuraciones
+from factura import Factura
 
 input_url = self.archivo = "./gnucash/prueba.gnucash"
 
@@ -25,6 +25,9 @@ except Exception as exception:
 
 factura = session.book.InvoiceLookupByID("125")
 
+registro = Factura()
+
+
 #emisor
 conf.agrega_cta_pago(factura.GetOwner().GetAddr().GetFax())
 conf.agrega_metodo_de_pago(factura.GetOwner().GetNotes())
@@ -34,7 +37,7 @@ print factura.GetOwner().GetName()
 print factura.GetOwner().GetAddr().GetAddr1()   
 print factura.GetOwner().GetAddr().GetAddr2()   
 print factura.GetOwner().GetAddr().GetAddr3()   
-print factura.GetOwner().GetAddr().GetAddr4()   
+registro.edita_rfc_receptor(factura.GetOwner().GetAddr().GetAddr4())
 print factura.GetOwner().GetAddr().GetEmail()   
 
 #print dir(factura)

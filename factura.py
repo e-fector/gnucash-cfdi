@@ -73,7 +73,11 @@ class Factura():
                     "tasa":tasa,
                     })
 
-        
+
+    def edita_rfc_receptor(self, rfc_receptor):
+        self.receptor.rfc_receptor = rfc_receptor
+
+
 
     def __str__(self):
         return genera_layout(self.encabezado, self.receptor, self.factura, \
