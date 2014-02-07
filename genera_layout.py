@@ -8,104 +8,95 @@ def genera_layout(encabezado = None, receptor=None, factura=None, \
         not lineas_factura and not emisor:
     return "Falla, datos insuficientes"
 
+  print factura
 
-  cfdi = unicode("""[Encabezado]
-serie|{serie}
-fecha|{fecha_factura}
-folio|{folio}
+  cfdi = "[Encabezado]"
+  cfdi += "\n" + "serie|" + factura["serie"]
+  cfdi += "\n" + "fecha|" + factura["fecha_factura"]
+  cfdi += "\n" + "folio|" + factura["folio"]
 
-""","utf-8").format(**factura)
+  cfdi += "\n" + "tipoDeComprobante|ingreso"
+  cfdi += "\n" + "formaDePago|" + encabezado["forma_de_pago"]
+  cfdi += "\n" + "metodoDePago|" + encabezado["metodo_de_pago"]
+  cfdi += "\n" + "condicionesDePago|" + encabezado["condiciones"]
+  cfdi += "\n" + "NumCtaPago|" + encabezado["NumCtaPago"]
+  cfdi += "\n" + "subTotal|10.00"
+  cfdi += "\n" + "descuento|0.00"
+  cfdi += "\n" + "total|11.60"
+  cfdi += "\n" + "Moneda|MXN"
+  cfdi += "\n" + "noCertificado|"
+  cfdi += "\n" + "LugarExpedicion|" + encabezado["lugarDeExpedicion"]
+
+  cfdi += "\n" + "[Datos Adicionales]"
+
+  cfdi += "\n" + "tipoDocumento|Factura"
+  cfdi += "\n" + "observaciones|"
+
+  cfdi += "\n" + "[Emisor]"
+
+  cfdi += "\n" + "rfc|" + emisor["emisor_rfc"]
+  cfdi += "\n" + "nombre|" + emisor["emisor_nombre"]
+  cfdi += "\n" + "RegimenFiscal|" + emisor["regimen_fiscal"]
   
-  cfdi += unicode("""tipoDeComprobante|ingreso
-formaDePago|{forma_de_pago}
-metodoDePago|{metodo_de_pago}
-condicionesDePago|{condiciones}
-NumCtaPago|{NumCtaPago}
-subTotal|10.00
-descuento|0.00
-total|11.60
-Moneda|MXN
-noCertificado|
-LugarExpedicion|{lugarDeExpedicion}
+  cfdi += "\n" + "[DomicilioFiscal]"
 
-[Datos Adicionales]
+  cfdi += "\n" + "calle|" + emisor["domicilio_calle"]
+  cfdi += "\n" + "noExterior|" + emisor["domicilio_noExterior"]
+  cfdi += "\n" + "noInterior|" + emisor["domicilio_noInterior"]
+  cfdi += "\n" + "colonia|" + emisor["domicilio_colonia"]
+  cfdi += "\n" + "localidad|" + emisor["domicilio_localidad"]
+  cfdi += "\n" + "municipio|" + emisor["domicilio_municipio"]
+  cfdi += "\n" + "estado|" + emisor["domicilio_estado"]
+  cfdi += "\n" + "pais|" + emisor["domicilio_pais"]
+  cfdi += "\n" + "codigoPostal|" + emisor["domicilio_cp"]
 
-tipoDocumento|Factura
-observaciones|
+  cfdi += "\n" + "[ExpedidoEn]"
+  cfdi += "\n" + "calle|" + emisor["expedidoen_calle"]
+  cfdi += "\n" + "noExterior|" + emisor["expedidoen_noExterior"]
+  cfdi += "\n" + "noInterior|" + emisor["expedidoen_noInterior"]
+  cfdi += "\n" + "colonia|" + emisor["expedidoen_colonia"]
+  cfdi += "\n" + "localidad|" + emisor["expedidoen_localidad"]
+  cfdi += "\n" + "municipio|" + emisor["expedidoen_municipio"]
+  cfdi += "\n" + "estado|" + emisor["expedidoen_estado"]
+  cfdi += "\n" + "pais|" + emisor["expedidoen_pais"]
+  cfdi += "\n" + "codigoPostal|" + emisor["expedidoen_cp"]
 
-""","utf-8").format(**encabezado)
+  cfdi += "\n" + "[Receptor]"
+  cfdi += "\n" + "rfc|" + receptor["rfc_receptor"]
+  cfdi += "\n" + "nombre|" + receptor["nombre_fiscal"]
 
-  cfdi += unicode("""
-[Emisor]
+  cfdi += "\n" + "[Domicilio]"
+  cfdi += "\n" + "calle|" + receptor["calle"]
+  cfdi += "\n" + "noExterior|" + receptor["noExterior"]
+  cfdi += "\n" + "noInterior|" + receptor["noInterior"]
+  cfdi += "\n" + "colonia|" + receptor["colonia"]
+  cfdi += "\n" + "localidad|" + receptor["localidad"]
+  cfdi += "\n" + "municipio|" + receptor["municipio"]
+  cfdi += "\n" + "estado|" + receptor["estado"]
+  cfdi += "\n" + "pais|" + receptor["pais"]
+  cfdi += "\n" + "codigoPostal|" + receptor["cp"]
 
-rfc|{emisor_rfc}
-nombre|{emisor_nombre}
-RegimenFiscal|{regimen_fiscal}
+  cfdi += "\n" + "[DatosAdicionales]"
 
-[DomicilioFiscal]
+  cfdi += "\n" + "noCliente|" + receptor["noCliente"]
+  cfdi += "\n" + "email|" + receptor["email"]
 
-calle|{domicilio_calle}
-noExterior|{domicilio_noExterior}
-noInterior|{domicilio_noInterior}
-colonia|{domicilio_colonia}
-localidad|{domicilio_localidad}
-municipio|{domicilio_municipio}
-estado|{domicilio_estado}
-pais|{domicilio_pais}
-codigoPostal|{domicilio_cp}
 
-[ExpedidoEn]
-calle|{expedidoen_calle}
-noExterior|{expedidoen_noExterior}
-noInterior|{expedidoen_noInterior}
-colonia|{expedidoen_colonia}
-localidad|{expedidoen_localidad}
-municipio|{expedidoen_municipio}
-estado|{expedidoen_estado}
-pais|{expedidoen_pais}
-codigoPostal|{expedidoen_cp}
-
-""","utf-8").format(**emisor)
-
-  cfdi += unicode("""
-[Receptor]
-rfc|{rfc_receptor}
-nombre|{nombre_fiscal}
-
-[Domicilio]
-calle|{calle}
-noExterior|{noExterior}
-noInterior|{noInterior}
-colonia|{colonia}
-localidad|{localidad}
-municipio|{municipio}
-estado|{estado}
-pais|{pais}
-codigoPostal|{cp}
-
-[DatosAdicionales]
-
-noCliente|{noCliente}
-email|{email}
-
-""","utf-8").format(**receptor)
   for linea in lineas_factura:
-    cfdi += unicode("""
-[Concepto]
-
-cantidad|{cantidad}
-unidad|{unidad}
-noIdentificacion|{noIdentificacion}
-descripcion|{descripcion}
-valorUnitario|{valorUnitario}
-importe|{importe}
-
-[ImpuestoTrasladado]
-
-impuesto|{impuesto}
-importe|{importe_impuesto}
-tasa|{tasa}
-""","utf-8").format(**linea)
+    cfdi += "\n" + "[Concepto]"
+    
+    cfdi += "\n" + "cantidad| " + str(linea["cantidad"])
+    cfdi += "\n" + "unidad| " + linea["unidad"]
+    cfdi += "\n" + "noIdentificacion| " + linea["noIdentificacion"]
+    cfdi += "\n" + "descripcion| " + linea["descripcion"]
+    cfdi += "\n" + "valorUnitario| " + str(linea["valorUnitario"])
+    cfdi += "\n" + "importe| " + linea["importe"]
+    
+    cfdi += "\n" + "[ImpuestoTrasladado] "
+    
+    cfdi += "\n" + "impuesto| " + str(linea["impuesto"])
+    cfdi += "\n" + "importe| " + str(linea["importe_impuesto"])
+    cfdi += "\n" + "tasa| " + str(linea["tasa"])
 
 
   return cfdi #.encode('ascii', "ignore");
