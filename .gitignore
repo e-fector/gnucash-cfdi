@@ -1,5 +1,6 @@
 *.py[cod]
 *.py~
+comprobantes/*
 
 # C extensions
 *.so

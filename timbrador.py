@@ -39,10 +39,15 @@ registro.edita_receptor_colonia(factura.GetOwner().GetAddr().GetAddr2())
 registro.edita_receptor_municipio(factura.GetOwner().GetAddr().GetAddr3())   
 registro.edita_rfc_receptor(factura.GetOwner().GetAddr().GetAddr4())
 registro.edita_receptor_email(factura.GetOwner().GetAddr().GetEmail())
+registro.edita_receptor_pais("Mexico")
 
 #print dir(factura)
+from datetime import datetime
 fecha = factura.GetDatePosted()
-registro.edita_factura_fecha_factura(fecha.isoformat())
+registro.edita_factura_fecha_factura(datetime(fecha.year,
+                                     fecha.month, 
+                                     fecha.day).isoformat())
+
 
 #print factura.GetNotes()
 #print factura.GetTotalTax()
@@ -59,7 +64,7 @@ for concepto in factura.GetEntries():
         descripcion=concepto.GetDescription(),
         valorUnitario=gnucash.GncNumeric(instance=concepto.GetInvPrice()),
         importe="92.00",
-        impuesto=gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
+        impuesto="IVA",#gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
         importe_impuesto=106.72,#concepto.GetInvTaxIncluded(),
         tasa=16.00#TaxTable(instance=concepto.GetInvTaxTable())
         )
