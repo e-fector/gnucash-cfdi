@@ -8,7 +8,7 @@ def genera_layout(encabezado = None, receptor=None, factura=None, \
         not lineas_factura and not emisor:
     return "Falla, datos insuficientes"
 
-  print factura
+  
 
   cfdi = "[Encabezado]"
   cfdi += "\n" + "serie|" + factura["serie"]

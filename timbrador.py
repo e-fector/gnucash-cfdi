@@ -72,4 +72,29 @@ for concepto in factura.GetEntries():
 #from genera_layout import genera_layout
 #print genera_layout(registro.encabezado, registro.receptor, registro.factura, \
 #                        registro.lineas_factura, registro.emisor)
-print registro
+
+# RFC utilizado para el ambiente de pruebas
+rfc_emisor = registro.emisor["emisor_rfc"]
+
+# Datos de acceso al ambiente de pruebas
+url_timbrado = "https://t1.facturacionmoderna.com/timbrado/soap"
+user_id = "RAV751222956";
+user_password = "b9ec2afa3361a59af4b4d102d3f704eabdf097d4"
+
+cfdi = str(registro)
+
+params = {'emisorRFC': rfc_emisor, 'UserID': user_id, 'UserPass': user_password}
+options = {'generarCBB': True, 'generarPDF': True, 'generarTXT': True}
+cliente = facturacion_moderna.Cliente(url_timbrado, params, False)
+
+if cliente.timbrar(cfdi, options):
+  folder = 'comprobantes'
+  if not os.path.exists(folder): os.makedirs(folder)
+  comprobante = os.path.join(folder, cliente.uuid)
+  for extension in ['xml', 'pdf', 'png', 'txt']:
+    if hasattr(cliente, extension):
+      with open(("%s.%s" % (comprobante, extension)), 'w') as f: f.write(getattr(cliente, extension))
+      print("%s almacenado correctamente en %s.%s" % (extension.upper(), comprobante, extension))
+  print 'Timbrado exitoso'
+else:
+  print("[%s] - %s" % (cliente.codigo_error, cliente.error))
