@@ -33,21 +33,21 @@ registro = Factura()
 #conf.agrega_metodo_de_pago(factura.GetOwner().GetNotes())
 
 #receptor
-print factura.GetOwner().GetName()
-print factura.GetOwner().GetAddr().GetAddr1()   
-print factura.GetOwner().GetAddr().GetAddr2()   
-print factura.GetOwner().GetAddr().GetAddr3()   
+registro.edita_receptor_nombre_fiscal(factura.GetOwner().GetName())
+registro.edita_receptor_calle(factura.GetOwner().GetAddr().GetAddr1())
+registro.edita_receptor_colonia(factura.GetOwner().GetAddr().GetAddr2())
+registro.edita_receptor_municipio(factura.GetOwner().GetAddr().GetAddr3())   
 registro.edita_rfc_receptor(factura.GetOwner().GetAddr().GetAddr4())
-print factura.GetOwner().GetAddr().GetEmail()   
+registro.edita_receptor_email(factura.GetOwner().GetAddr().GetEmail())
 
 #print dir(factura)
 fecha = factura.GetDatePosted()
 registro.edita_factura_fecha_factura(fecha.isoformat())
 
-print factura.GetNotes()
-print factura.GetTotalTax()
-print factura.GetTotalSubtotal()
-print factura.GetTotal()
+#print factura.GetNotes()
+#print factura.GetTotalTax()
+#print factura.GetTotalSubtotal()
+#print factura.GetTotal()
 registro.edita_encabezado_condiciones(factura.GetTerms().GetName())
 
 for concepto in factura.GetEntries():
@@ -58,10 +58,10 @@ for concepto in factura.GetEntries():
         noIdentificacion="N/D",
         descripcion=concepto.GetDescription(),
         valorUnitario=gnucash.GncNumeric(instance=concepto.GetInvPrice()),
-        importe="importe",
+        importe="92.00",
         impuesto=gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
-        importe_impuesto=concepto.GetInvTaxIncluded(),
-        tasa=TaxTable(instance=concepto.GetInvTaxTable())
+        importe_impuesto=106.72,#concepto.GetInvTaxIncluded(),
+        tasa=16.00#TaxTable(instance=concepto.GetInvTaxTable())
         )
     #print 
     #print gnucash.GncNumeric(instance=www.ReturnValue(www.GetInvTaxable()))
@@ -82,6 +82,7 @@ user_id = "RAV751222956";
 user_password = "b9ec2afa3361a59af4b4d102d3f704eabdf097d4"
 
 cfdi = str(registro)
+print cfdi
 
 params = {'emisorRFC': rfc_emisor, 'UserID': user_id, 'UserPass': user_password}
 options = {'generarCBB': True, 'generarPDF': True, 'generarTXT': True}
