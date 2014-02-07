@@ -33,7 +33,7 @@ class Factura():
             "expedidoen_estado":"Durango",
             "expedidoen_pais":"Mexico",
             "expedidoen_cp":"34000",
-            "emisor_rfc":"RAV751222956",
+            "emisor_rfc":"ESI920427886",
             "emisor_nombre":"Rectificaciones Avina SA de CV",
             "regimen_fiscal":"Regimen general de personas morales",
             }
