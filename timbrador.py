@@ -88,7 +88,6 @@ user_id = "UsuarioPruebasWS";
 user_password = "b9ec2afa3361a59af4b4d102d3f704eabdf097d4"
 
 cfdi = str(registro)
-print cfdi
 
 params = {'emisorRFC': rfc_emisor, 'UserID': user_id, 'UserPass': user_password}
 options = {'generarCBB': True, 'generarPDF': True, 'generarTXT': True}
@@ -106,6 +105,15 @@ if cliente.timbrar(cfdi, options):
   os.popen("./run_viewer.sh "+comprobante+".pdf")
   print "Preparando para mandar por correo"
 
+
+  info = open(comprobante + ".txt","r")
+  txt = ""
+  for line in info:
+      txt += line
+
+  
+  factura.SetNotes(txt)
+  session.save()
   try:
       email_a_mandar = str(registro.receptor["email"])
   
