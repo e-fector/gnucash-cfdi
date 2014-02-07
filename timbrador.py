@@ -77,8 +77,8 @@ for concepto in factura.GetEntries():
 rfc_emisor = registro.emisor["emisor_rfc"]
 
 # Datos de acceso al ambiente de pruebas
-url_timbrado = "https://t1.facturacionmoderna.com/timbrado/soap"
-user_id = "RAV751222956";
+url_timbrado = "https://t1demo.facturacionmoderna.com/timbrado/wsdl"
+user_id = "UsuarioPruebasWS";
 user_password = "b9ec2afa3361a59af4b4d102d3f704eabdf097d4"
 
 cfdi = str(registro)
