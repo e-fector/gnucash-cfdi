@@ -14,6 +14,7 @@ from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
 
 from factura import Factura
+from mail import mail
 
 input_url = "./gnucash/prueba.gnucash"
 
@@ -102,5 +103,25 @@ if cliente.timbrar(cfdi, options):
       with open(("%s.%s" % (comprobante, extension)), 'w') as f: f.write(getattr(cliente, extension))
       print("%s almacenado correctamente en %s.%s" % (extension.upper(), comprobante, extension))
   print 'Timbrado exitoso'
+  os.popen("./run_viewer.sh "+comprobante+".pdf")
+  print "Preparando para mandar por correo"
+
+  try:
+      email_a_mandar = str(registro.receptor["email"])
+  
+      correo_env = mail(email_a_mandar,
+                        "Factura electronica",
+                        "A continuacion anexo factura electronica.",
+                        comprobante+".pdf",
+                        comprobante+".xml")
+      print str(correo_env)
+
+  except Exception as e:
+      print str(e)
+      print "Correo no enviado"
+
+  print "Programa finalizado"
+  
+
 else:
   print("[%s] - %s" % (cliente.codigo_error, cliente.error))
