@@ -5,10 +5,19 @@ from email.MIMEText import MIMEText
 from email import Encoders
 import os
 
-gmail_user = ""
-gmail_pwd = ""
 
 def mail(to, subject, text, attach1, attach2):
+   gmail_user = ""
+   gmail_pwd = ""
+
+   if not gmail_user or not gmail_pwd:
+      import sys
+      import getpass
+      sys.stdout.write("Usuario correo:")
+      gmail_user =  raw_input().lower()
+      password_op = getpass.getpass()
+
+
    msg = MIMEMultipart()
 
    msg['From'] = gmail_user
