@@ -1,6 +1,9 @@
 *.py[cod]
 *.py~
+
+#Archivos que se generan
 comprobantes/*
+gnucash/prueba.gnucash*
 
 # C extensions
 *.so
