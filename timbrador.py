@@ -65,13 +65,13 @@ for concepto in factura.GetEntries():
         descripcion=concepto.GetDescription(),
         valorUnitario=gnucash.GncNumeric(instance=concepto.GetInvPrice()),
         importe="92.00",
-        impuesto="IVA",#gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
-        importe_impuesto=106.72,#concepto.GetInvTaxIncluded(),
-        tasa=16.00#TaxTable(instance=concepto.GetInvTaxTable())
         )
     #print 
     #print gnucash.GncNumeric(instance=www.ReturnValue(www.GetInvTaxable()))
 
+impuesto="IVA",#gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
+importe_impuesto=106.72,#concepto.GetInvTaxIncluded(),
+tasa=16.00#TaxTable(instance=concepto.GetInvTaxTable())
     
     
     

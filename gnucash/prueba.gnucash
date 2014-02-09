@@ -659,14 +659,14 @@
   <invoice:billing_id>OC</invoice:billing_id>
   <invoice:notes>TransID|&#13;
 noCertificadoSAT|20001000000100005761&#13;
-FechaTimbrado|2014-02-06T22:26:02&#13;
-UUID|C6E03E62-FF7C-47D1-B496-BCF6ECD57F2D&#13;
-selloSAT|RrwHwKrfvJFZQuksyNv2vGgrC6Q9FPluCxqNuH68+DBjAKOtn9YzDMsLoVxySM2rxL25hWc+6FJBbsaL+RCipla68H60nm9fOhBOnVpY7mdnmbGGvN0rEMh994jMg1WpIKxXgOoa/r/qmD7QXtCAYudbFjfehrrYl1aDWXkgzVY=&#13;
-selloCFD|Qgb18IsHa7ypji9oZxEqLqRJn92GeISG7L5+mWbyOH1ZRxAGuj/jkdeZi5b1M+EYyizAq2JuyyTnkoXEMQHHlj2sJiI9zRII9+QslS+WdomLx5ryKAU/E1YpE/8BXxZcccjGAiGueMPzSqXii0sT5z6kvdTymGhnFpJT6xDUer0=&#13;
+FechaTimbrado|2014-02-08T20:11:08&#13;
+UUID|05F6D108-D5F1-433D-B4E0-FDD3C6024EB1&#13;
+selloSAT|zef3hWPt/REslGSVTkmafA0L9zxU8ZCNHCcqR5CvVaHz2asReSGe7VL9uCu9GaWmNV5AxzZGLeUZkEQb+ahVS/hX4826WJkJMR7dnVJRVe7+UzkpPrNU2PwdkbHZPBDjKFhyjNNJlSX8WLh9ZuK5osE1Yq40ohoN05ITWO/lAYg=&#13;
+selloCFD|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8YcXzYRfpareY3fMS5BOxc/ljYhtXI6CZrKrkOrREYNcQUqLesM46LGxAmEORBRw8rIFSTGkcO5+CAk3/NZdvB404Obq20v8zcJxWI=&#13;
 Fecha|2014-02-04T00:00:00&#13;
 Serie|A&#13;
 Folio|123&#13;
-cadenaOriginalTFD|||1.0|.C6E03E62-FF7C-47D1-B496-BCF6ECD57F2D|2014-02-06T22:26:02|Qgb18IsHa7ypji9oZxEqLqRJn92GeISG7L5+mWbyOH1ZRxAGuj/jkdeZi5b1M+EYyizAq2JuyyTnkoXEMQHHlj2sJiI9zRII9+QslS+WdomLx5ryKAU/E1YpE/8BXxZcccjGAiGueMPzSqXii0sT5z6kvdTymGhnFpJT6xDUer0=|20001000000100005761||</invoice:notes>
+cadenaOriginalTFD|||1.0|.05F6D108-D5F1-433D-B4E0-FDD3C6024EB1|2014-02-08T20:11:08|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8YcXzYRfpareY3fMS5BOxc/ljYhtXI6CZrKrkOrREYNcQUqLesM46LGxAmEORBRw8rIFSTGkcO5+CAk3/NZdvB404Obq20v8zcJxWI=|20001000000100005761||</invoice:notes>
   <invoice:active>1</invoice:active>
   <invoice:posttxn type="guid">dfa288f2aa0cd9d3e2bfd95cb5e4b565</invoice:posttxn>
   <invoice:postlot type="guid">6a2e01708c8aced20e1ebd559886c115</invoice:postlot>

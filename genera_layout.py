@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 def genera_layout(encabezado = None, receptor=None, factura=None, \
-                    emisor = None, lineas_factura=[]):
+                    emisor = None, lineas_factura=[], impuesto=None):
   # se calcula la fecha de emision en formato ISO 8601
 
   if not encabezado and not receptor and not factura and \
@@ -92,11 +92,14 @@ def genera_layout(encabezado = None, receptor=None, factura=None, \
     cfdi += "\n" + "valorUnitario| " + str(linea["valorUnitario"])
     cfdi += "\n" + "importe| " + linea["importe"]
     
-    cfdi += "\n" + "[ImpuestoTrasladado] "
+  cfdi += "\n" + "[ImpuestoTrasladado] "
     
-    cfdi += "\n" + "impuesto| " + str(linea["impuesto"])
-    cfdi += "\n" + "importe| " + str(linea["importe_impuesto"])
-    cfdi += "\n" + "tasa| " + str(linea["tasa"])
+
+
+  cfdi += "\n" + "impuesto| " + str(impuesto["impuesto"])
+  cfdi += "\n" + "importe| " + str(impuesto["importe_impuesto"])
+  cfdi += "\n" + "tasa| " + str(impuesto["tasa"])
+
 
 
   return cfdi #.encode('ascii', "ignore");
@@ -164,10 +167,14 @@ if __name__ == '__main__':
         "descripcion":"Servicio Profesional",
         "valorUnitario":"10.00",
         "importe":"10.00",
-        "impuesto":"IVA",
-        "importe_impuesto":"1.60",
-        "tasa":"16.00",
         })
+  impuesto = {
+    
+    "impuesto":"IVA",
+    "importe_impuesto":"1.60",
+    "tasa":"16.00",
+    }
+  
 
   print genera_layout(encabezado, receptor, factura, emisor, lineas_factura)
 

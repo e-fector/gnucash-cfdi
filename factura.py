@@ -57,20 +57,22 @@ class Factura():
             "serie":"A",
             "folio":"123"
             }
+        self.impuesto = {
+            "impuesto":"IVA",
+            "importe_impuesto":"1",
+            "tasa":"1"
+            }
         self.lineas_factura = []
 
     def agrega_linea(self,cantidad,unidad,noIdentificacion,descripcion,valorUnitario, \
-                         importe,impuesto,importe_impuesto,tasa):
+                         importe):
             self.lineas_factura.append( {
                     "cantidad":cantidad,
                     "unidad":unidad,
                     "noIdentificacion":noIdentificacion,
                     "descripcion":descripcion,
                     "valorUnitario":valorUnitario,
-                    "importe":importe,
-                    "impuesto":impuesto,
-                    "importe_impuesto":importe_impuesto,
-                    "tasa":tasa,
+                    "importe":importe
                     })
 
 
@@ -140,6 +142,7 @@ class Factura():
                              receptor = self.receptor, 
                              factura = self.factura, 
                              lineas_factura = self.lineas_factura, 
+                             impuesto = self.impuesto,
                              emisor = self.emisor)
 
     def __unicode__(self):
@@ -147,4 +150,5 @@ class Factura():
                              receptor = self.receptor, 
                              factura = self.factura, 
                              lineas_factura = self.lineas_factura, 
+                             impuesto = self.impuesto,
                              emisor = self.emisor)
