@@ -20,3 +20,5 @@ then
 else
    nohup atril $archivo &
 fi
+
+sleep 3
