@@ -15,8 +15,7 @@ def mail(to, subject, text, attach1, attach2):
       import getpass
       sys.stdout.write("Usuario correo:")
       gmail_user =  raw_input().lower()
-      password_op = getpass.getpass()
-
+      gmail_pwd = getpass.getpass()
 
    msg = MIMEMultipart()
 
