@@ -3,6 +3,7 @@
 from facturacion_moderna import facturacion_moderna
 from datetime import datetime
 import base64
+import os
 
 debug = False
 
@@ -99,7 +100,7 @@ cliente = facturacion_moderna.Cliente(url_timbrado, params, False)
 if debug == True:
     factura.SetNotes("")
 
-if factura.GetNotes().find("noCertificadoSAT") > 0 and facura.IsPosted():
+if factura.GetNotes().find("noCertificadoSAT") > 0 and not factura.IsPosted():
     print "FACTURA YA TIMBRADA"
     exit(0)
 
