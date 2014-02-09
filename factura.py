@@ -11,8 +11,11 @@ class Factura():
             "forma_de_pago":"Transferencia",
             "metodo_de_pago":"Pago en una sola exhibicion",
             "condiciones":"Contado",
-            "NumCtaPago":"1234",
+            "NumCtaPago":"",
             "lugarDeExpedicion":"Victoria de Durango",
+            "subtotal":None,
+            "total":None,
+            "notas":""
             }
         self.emisor = {
             "domicilio_calle":"Lic. Alberto Terrones Benitez #101 NTE",
@@ -53,14 +56,14 @@ class Factura():
             "email":"",
             }
         self.factura = {
-            "fecha_factura":"10-10-2010",
-            "serie":"A",
-            "folio":"123"
+            "fecha_factura":"",
+            "serie":"",
+            "folio":""
             }
         self.impuesto = {
             "impuesto":"IVA",
-            "importe_impuesto":"1",
-            "tasa":"1"
+            "importe_impuesto":None,
+            "tasa":None
             }
         self.lineas_factura = []
 
@@ -89,12 +92,31 @@ class Factura():
         self.factura["folio"] = folio
 
     
+    ###
+    #
+    # Mutador Impuesto
+    #
+    ###
+    def edita_impuesto(self, impuesto):
+        self.impuesto["impuesto"] = impuesto
+    def edita_importe_impuesto(self, importe_impuesto):
+        self.impuesto["importe_impuesto"] = importe_impuesto
+    def edita_impuesto_tasa(self, tasa):
+        self.impuesto["tasa"] = tasa
+
+    
 
     ###
     #
     # Mutadores encabezado
     #
     ###
+    def edita_encabezado_notas(self, notas):
+        self.encabezado["notas"] = notas
+    def edita_encabezado_subtotal(self, subtotal):
+        self.encabezado["subtotal"] = subtotal
+    def edita_encabezado_total(self, total):
+        self.encabezado["total"] = total
     def edita_encabezado_forma_de_pago(self, forma_de_pago):
         self.encabezado["forma_de_pago"] = forma_de_pago
     def edita_encabezado_metodo_de_pago(self, metodo_de_pago):
