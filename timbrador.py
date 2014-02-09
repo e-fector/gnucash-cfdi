@@ -9,6 +9,8 @@ import sha
 import os
 import re
 
+debug = True
+
 import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
     Address, Invoice, Entry, TaxTable, TaxTableEntry, BillTerm
@@ -24,7 +26,13 @@ except Exception as exception:
     print "Problem opening input."
     print exception
 
-factura = session.book.InvoiceLookupByID("125")
+import sys
+import getpass
+sys.stdout.write("Folio de factura a timbrar:")
+id_factura =  raw_input().lower()
+
+
+factura = session.book.InvoiceLookupByID(id_factura)
 
 registro = Factura()
 
@@ -50,35 +58,35 @@ registro.edita_factura_fecha_factura(datetime(fecha.year,
                                      fecha.day).isoformat())
 
 
-#print factura.GetNotes()
-#print factura.GetTotalTax()
-#print factura.GetTotalSubtotal()
-#print factura.GetTotal()
+registro.edita_encabezado_notas(factura.GetNotes())
 registro.edita_encabezado_condiciones(factura.GetTerms().GetName())
+registro.edita_encabezado_forma_de_pago(factura.GetOwner().GetAddr().GetPhone())
+registro.edita_encabezado_NumCtaPago(factura.GetOwner().GetAddr().GetFax())
+registro.edita_receptor_noCliente(factura.GetOwner().GetID())
+#print factura.GetBillingID()
 
 for concepto in factura.GetEntries():
     concepto = Entry(instance=concepto)
+
+    cantidad=str(gnucash.GncNumeric(instance=concepto.GetQuantity()))
+    valorUnitario=str(gnucash.GncNumeric(instance=concepto.GetInvPrice()))
+
     registro.agrega_linea(
-        cantidad=gnucash.GncNumeric(instance=concepto.GetQuantity()),
         unidad=concepto.GetAction(),
-        noIdentificacion="N/D",
+        noIdentificacion=concepto.GetDescription(),
         descripcion=concepto.GetDescription(),
-        valorUnitario=gnucash.GncNumeric(instance=concepto.GetInvPrice()),
-        importe="92.00",
+        cantidad=cantidad,
+        valorUnitario=valorUnitario,
+        importe=str(float(cantidad) * float(valorUnitario))
         )
-    #print 
-    #print gnucash.GncNumeric(instance=www.ReturnValue(www.GetInvTaxable()))
 
-impuesto="IVA",#gnucash.GncNumeric(instance=concepto.ReturnTaxValue(concepto.GetInvTaxable())),
-importe_impuesto=106.72,#concepto.GetInvTaxIncluded(),
-tasa=16.00#TaxTable(instance=concepto.GetInvTaxTable())
-    
-    
-    
-#from genera_layout import genera_layout
-#print genera_layout(registro.encabezado, registro.receptor, registro.factura, \
-#                        registro.lineas_factura, registro.emisor)
+registro.edita_encabezado_subtotal(str(eval("1.0*"+factura.GetTotalSubtotal().to_string())))
+registro.edita_encabezado_total(str(eval("1.0*"+factura.GetTotal().to_string())))
 
+registro.edita_impuesto("IVA")
+registro.edita_importe_impuesto(str(eval("1.0*"+factura.GetTotalTax().to_string())))
+registro.edita_impuesto_tasa("16.00")
+        
 # RFC utilizado para el ambiente de pruebas
 rfc_emisor = registro.emisor["emisor_rfc"]
 
@@ -92,6 +100,13 @@ cfdi = str(registro)
 params = {'emisorRFC': rfc_emisor, 'UserID': user_id, 'UserPass': user_password}
 options = {'generarCBB': True, 'generarPDF': True, 'generarTXT': True}
 cliente = facturacion_moderna.Cliente(url_timbrado, params, False)
+
+if debug == True:
+    factura.SetNotes("")
+
+if factura.GetNotes().find("noCertificadoSAT") > 0 and facura.IsPosted():
+    print "FACTURA YA TIMBRADA"
+    exit(0)
 
 if cliente.timbrar(cfdi, options):
   folder = 'comprobantes'
@@ -112,14 +127,14 @@ if cliente.timbrar(cfdi, options):
       txt += line
 
   
-  factura.SetNotes(txt)
+  factura.SetNotes(factura.GetNotes() + "\n" + txt)
   session.save()
   try:
       email_a_mandar = str(registro.receptor["email"])
   
       correo_env = mail(email_a_mandar,
-                        "Factura electronica",
-                        "A continuacion anexo factura electronica.",
+                        "Factura electronica (%s)" % id_factura,
+                        "A continuacion anexamos nuestra factura electronica. ",
                         comprobante+".pdf",
                         comprobante+".xml")
       print str(correo_env)
