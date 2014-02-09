@@ -13,7 +13,7 @@ Es todo.
 
 El siguiente codigo descarga la aplicacion, y timbra la factura con el id 200 en gnucash/prueba.gnucash
 
-    wget https://codeload.github.com/sebastianavina/gnucash-cfdi/zip/master
+    wget https://codeload.github.com/sebastianavina/gnucash-cfdi/zip/master -O gnucash-cfdi-master.zip
     unzip gnucash-cfdi-master.zip -d ./
     cd ./gnucash-cfd-master/
     echo "200" | python timbrador.py
