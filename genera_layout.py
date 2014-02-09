@@ -20,9 +20,9 @@ def genera_layout(encabezado = None, receptor=None, factura=None, \
   cfdi += "\n" + "metodoDePago|" + encabezado["metodo_de_pago"]
   cfdi += "\n" + "condicionesDePago|" + encabezado["condiciones"]
   cfdi += "\n" + "NumCtaPago|" + encabezado["NumCtaPago"]
-  cfdi += "\n" + "subTotal|10.00"
+  cfdi += "\n" + "subTotal|" + encabezado["subtotal"]
   cfdi += "\n" + "descuento|0.00"
-  cfdi += "\n" + "total|11.60"
+  cfdi += "\n" + "total|" + encabezado["total"]
   cfdi += "\n" + "Moneda|MXN"
   cfdi += "\n" + "noCertificado|"
   cfdi += "\n" + "LugarExpedicion|" + encabezado["lugarDeExpedicion"]
@@ -30,7 +30,7 @@ def genera_layout(encabezado = None, receptor=None, factura=None, \
   cfdi += "\n" + "[Datos Adicionales]"
 
   cfdi += "\n" + "tipoDocumento|Factura"
-  cfdi += "\n" + "observaciones|"
+  cfdi += "\n" + "observaciones|"+encabezado["notas"]
 
   cfdi += "\n" + "[Emisor]"
 
