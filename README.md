@@ -11,6 +11,18 @@ Es todo.
 
 (Usa facturacionmoderna.com como PAC)
 
+Dependencias necesarios:
+------------------------
+    sudo apt-get install gnucash
+    sudo apt-get install python-gnucash
+    sudo apt-get install python-suds
+
+OJO: en Linux Mint (MATE) el archivo /usr/lib/python2.7/dist-packages/gnucash/gnucash_business.py traia un error en la L205, le faltaba una E a Entry, hay que sudo nano y editar manualmente el archivo.
+
+
+DEMO:
+-----
+
 El siguiente codigo descarga la aplicacion, y timbra la factura con el id 200 en gnucash/prueba.gnucash
 
     wget https://codeload.github.com/sebastianavina/gnucash-cfdi/zip/master -O gnucash-cfdi-master.zip
