@@ -45,11 +45,11 @@
 </book:slots>
 <gnc:count-data cd:type="commodity">1</gnc:count-data>
 <gnc:count-data cd:type="account">10</gnc:count-data>
-<gnc:count-data cd:type="transaction">3</gnc:count-data>
+<gnc:count-data cd:type="transaction">4</gnc:count-data>
 <gnc:count-data cd:type="gnc:GncBillTerm">2</gnc:count-data>
 <gnc:count-data cd:type="gnc:GncCustomer">1</gnc:count-data>
-<gnc:count-data cd:type="gnc:GncEntry">4</gnc:count-data>
-<gnc:count-data cd:type="gnc:GncInvoice">3</gnc:count-data>
+<gnc:count-data cd:type="gnc:GncEntry">7</gnc:count-data>
+<gnc:count-data cd:type="gnc:GncInvoice">5</gnc:count-data>
 <gnc:count-data cd:type="gnc:GncTaxTable">2</gnc:count-data>
 <gnc:commodity version="2.0.0">
   <cmdty:space>ISO4217</cmdty:space>
@@ -227,6 +227,24 @@
       </lot:slots>
     </gnc:lot>
     <gnc:lot version="2.0.0">
+      <lot:id type="guid">85bf2bd2eec4843baee5829b88424539</lot:id>
+      <lot:slots>
+        <slot>
+          <slot:key>gncInvoice</slot:key>
+          <slot:value type="frame">
+            <slot>
+              <slot:key>invoice-guid</slot:key>
+              <slot:value type="guid">4024f2381e0f4fab955f71913f83591b</slot:value>
+            </slot>
+          </slot:value>
+        </slot>
+        <slot>
+          <slot:key>title</slot:key>
+          <slot:value type="string">Invoice 200</slot:value>
+        </slot>
+      </lot:slots>
+    </gnc:lot>
+    <gnc:lot version="2.0.0">
       <lot:id type="guid">c26c505548694d6d2dc775dcdb1ef9be</lot:id>
       <lot:slots>
         <slot>
@@ -398,6 +416,73 @@
   </trn:splits>
 </gnc:transaction>
 <gnc:transaction version="2.0.0">
+  <trn:id type="guid">3f08b668bf7347cc347ecbf68133859b</trn:id>
+  <trn:currency>
+    <cmdty:space>ISO4217</cmdty:space>
+    <cmdty:id>MXN</cmdty:id>
+  </trn:currency>
+  <trn:num>200</trn:num>
+  <trn:date-posted>
+    <ts:date>2014-02-08 00:00:00 -0600</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2014-02-08 21:48:39 -0600</ts:date>
+  </trn:date-entered>
+  <trn:description>Empresa ficticia SA de CV</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>gncInvoice</slot:key>
+      <slot:value type="frame">
+        <slot>
+          <slot:key>invoice-guid</slot:key>
+          <slot:value type="guid">4024f2381e0f4fab955f71913f83591b</slot:value>
+        </slot>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>trans-date-due</slot:key>
+      <slot:value type="timespec">
+        <ts:date>2014-02-08 00:00:00 -0600</ts:date>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>trans-read-only</slot:key>
+      <slot:value type="string">Generated from an invoice.  Try unposting the invoice.</slot:value>
+    </slot>
+    <slot>
+      <slot:key>trans-txn-type</slot:key>
+      <slot:value type="string">I</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">196ed28454751491880445f5a428e410</split:id>
+      <split:action>Invoice</split:action>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>20370/100</split:value>
+      <split:quantity>20370/100</split:quantity>
+      <split:account type="guid">f7a212ea496542bb2a81dbcd5cc5f5a1</split:account>
+      <split:lot type="guid">85bf2bd2eec4843baee5829b88424539</split:lot>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">0dceb91529507be7f84460c6757c4edb</split:id>
+      <split:action>Invoice</split:action>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-2810/100</split:value>
+      <split:quantity>-2810/100</split:quantity>
+      <split:account type="guid">a0658e98103f3a097cc105e3200862ff</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">c49ab211c82beffec8bae47488e4ecee</split:id>
+      <split:action>Invoice</split:action>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-17560/100</split:value>
+      <split:quantity>-17560/100</split:quantity>
+      <split:account type="guid">6dd27839d71d5219cb1b45d9f04b79f2</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
   <trn:id type="guid">724e769382bf8468fe160d45b0eee366</trn:id>
   <trn:currency>
     <cmdty:space>ISO4217</cmdty:space>
@@ -468,7 +553,7 @@
   <billterm:guid type="guid">755c8d4cc6739be1fa589cc9696dafa9</billterm:guid>
   <billterm:name>Pago inmediato</billterm:name>
   <billterm:desc>Pago inmediato</billterm:desc>
-  <billterm:refcount>0</billterm:refcount>
+  <billterm:refcount>1</billterm:refcount>
   <billterm:invisible>0</billterm:invisible>
   <billterm:child type="guid">7fd69a63664bb0d11e7af1be5b58539a</billterm:child>
   <billterm:days/>
@@ -492,11 +577,12 @@
     <addr:addr2>Colonia Coqueta</addr:addr2>
     <addr:addr3>Durango, DGO. MX CP 34000</addr:addr3>
     <addr:addr4>ESI920427886</addr:addr4>
+    <addr:phone>TRANSFERENCIA INTERBANCARIA</addr:phone>
     <addr:fax>5992</addr:fax>
     <addr:email>sebastianavina@gmail.com</addr:email>
   </cust:addr>
   <cust:shipaddr version="2.0.0"/>
-  <cust:notes>TRANSFERENCIA INTERBANCARIA</cust:notes>
+  <cust:terms type="guid">755c8d4cc6739be1fa589cc9696dafa9</cust:terms>
   <cust:taxincluded>USEGLOBAL</cust:taxincluded>
   <cust:active>1</cust:active>
   <cust:discount>0/1</cust:discount>
@@ -574,6 +660,26 @@
   <entry:i-taxtable type="guid">84fa20c8f7e9ef64fdd3402fd02e2ffc</entry:i-taxtable>
 </gnc:GncEntry>
 <gnc:GncEntry version="2.0.0">
+  <entry:guid type="guid">4abdbd5c0bddf594b6447aa54ccb3c84</entry:guid>
+  <entry:date>
+    <ts:date>2014-02-08 12:00:00 -0600</ts:date>
+  </entry:date>
+  <entry:entered>
+    <ts:date>2014-02-08 21:46:58 -0600</ts:date>
+  </entry:entered>
+  <entry:description>Dos concpetos</entry:description>
+  <entry:action>PZA</entry:action>
+  <entry:qty>4000000/1000000</entry:qty>
+  <entry:i-acct type="guid">6dd27839d71d5219cb1b45d9f04b79f2</entry:i-acct>
+  <entry:i-price>20000000/1000000</entry:i-price>
+  <entry:invoice type="guid">4024f2381e0f4fab955f71913f83591b</entry:invoice>
+  <entry:i-disc-type>PERCENT</entry:i-disc-type>
+  <entry:i-disc-how>PRETAX</entry:i-disc-how>
+  <entry:i-taxable>1</entry:i-taxable>
+  <entry:i-taxincluded>0</entry:i-taxincluded>
+  <entry:i-taxtable type="guid">84fa20c8f7e9ef64fdd3402fd02e2ffc</entry:i-taxtable>
+</gnc:GncEntry>
+<gnc:GncEntry version="2.0.0">
   <entry:guid type="guid">cdb4b644bd848f4f662189a04ee8daad</entry:guid>
   <entry:date>
     <ts:date>2014-02-04 12:00:00 -0600</ts:date>
@@ -587,6 +693,46 @@
   <entry:i-acct type="guid">f5406819551b99562fcef62a8bd58036</entry:i-acct>
   <entry:i-price>25000000/1000000</entry:i-price>
   <entry:invoice type="guid">9f012d5cd01be324875f308e07e53b35</entry:invoice>
+  <entry:i-disc-type>PERCENT</entry:i-disc-type>
+  <entry:i-disc-how>PRETAX</entry:i-disc-how>
+  <entry:i-taxable>1</entry:i-taxable>
+  <entry:i-taxincluded>0</entry:i-taxincluded>
+  <entry:i-taxtable type="guid">84fa20c8f7e9ef64fdd3402fd02e2ffc</entry:i-taxtable>
+</gnc:GncEntry>
+<gnc:GncEntry version="2.0.0">
+  <entry:guid type="guid">d768711dc050f512d815f103205dc9d7</entry:guid>
+  <entry:date>
+    <ts:date>2014-02-08 12:00:00 -0600</ts:date>
+  </entry:date>
+  <entry:entered>
+    <ts:date>2014-02-08 21:47:13 -0600</ts:date>
+  </entry:entered>
+  <entry:description>tRES cONCPE</entry:description>
+  <entry:action>Project</entry:action>
+  <entry:qty>300000/1000000</entry:qty>
+  <entry:i-acct type="guid">6dd27839d71d5219cb1b45d9f04b79f2</entry:i-acct>
+  <entry:i-price>12000000/1000000</entry:i-price>
+  <entry:invoice type="guid">4024f2381e0f4fab955f71913f83591b</entry:invoice>
+  <entry:i-disc-type>PERCENT</entry:i-disc-type>
+  <entry:i-disc-how>PRETAX</entry:i-disc-how>
+  <entry:i-taxable>1</entry:i-taxable>
+  <entry:i-taxincluded>0</entry:i-taxincluded>
+  <entry:i-taxtable type="guid">84fa20c8f7e9ef64fdd3402fd02e2ffc</entry:i-taxtable>
+</gnc:GncEntry>
+<gnc:GncEntry version="2.0.0">
+  <entry:guid type="guid">e49a96aa81b89a182be8cdddee41d175</entry:guid>
+  <entry:date>
+    <ts:date>2014-02-08 12:00:00 -0600</ts:date>
+  </entry:date>
+  <entry:entered>
+    <ts:date>2014-02-08 21:46:45 -0600</ts:date>
+  </entry:entered>
+  <entry:description>Un concepto</entry:description>
+  <entry:action>PZA</entry:action>
+  <entry:qty>1000000/1000000</entry:qty>
+  <entry:i-acct type="guid">6dd27839d71d5219cb1b45d9f04b79f2</entry:i-acct>
+  <entry:i-price>92000000/1000000</entry:i-price>
+  <entry:invoice type="guid">4024f2381e0f4fab955f71913f83591b</entry:invoice>
   <entry:i-disc-type>PERCENT</entry:i-disc-type>
   <entry:i-disc-how>PRETAX</entry:i-disc-how>
   <entry:i-taxable>1</entry:i-taxable>
@@ -611,6 +757,41 @@
   <invoice:active>1</invoice:active>
   <invoice:posttxn type="guid">6a686335a37588090e34d80b7f41058c</invoice:posttxn>
   <invoice:postlot type="guid">502c4b5af42e2f4bc4573cd6d9bef486</invoice:postlot>
+  <invoice:postacc type="guid">f7a212ea496542bb2a81dbcd5cc5f5a1</invoice:postacc>
+  <invoice:currency>
+    <cmdty:space>ISO4217</cmdty:space>
+    <cmdty:id>MXN</cmdty:id>
+  </invoice:currency>
+</gnc:GncInvoice>
+<gnc:GncInvoice version="2.0.0">
+  <invoice:guid type="guid">4024f2381e0f4fab955f71913f83591b</invoice:guid>
+  <invoice:id>200</invoice:id>
+  <invoice:owner version="2.0.0">
+    <owner:type>gncCustomer</owner:type>
+    <owner:id type="guid">d99780f9e5d56221a04d32bd4c5c8e2e</owner:id>
+  </invoice:owner>
+  <invoice:opened>
+    <ts:date>2014-02-08 00:00:00 -0600</ts:date>
+  </invoice:opened>
+  <invoice:posted>
+    <ts:date>2014-02-08 00:00:00 -0600</ts:date>
+  </invoice:posted>
+  <invoice:terms type="guid">7fd69a63664bb0d11e7af1be5b58539a</invoice:terms>
+  <invoice:billing_id>OC123</invoice:billing_id>
+  <invoice:notes>
+TransID|&#13;
+noCertificadoSAT|20001000000100005761&#13;
+FechaTimbrado|2014-02-08T21:57:40&#13;
+UUID|1F5BC7B7-6228-4545-8C04-268B9E0D7D4A&#13;
+selloSAT|LzLDK+BwIRf08WjAAhUZnXz7ZtWkaseGbTuAxwwzBAbCLPM8NAVlVQxe2xfCQjXc9HWkyFJHX2jSn2ur+RD8/77x7MTtVE/FPBbxsn0H794TbZxs2z8mZrOsJlxA/9G+S27GYjvorOqrDxBJQoPzQQ/wzBY0ihYjlf4zS8ICrM8=&#13;
+selloCFD|XyEL86erQDnJMxGpCZk9aWb81u7YtT0853DW08G8ZP/ac4Kd29o9tkZTk4n5xr3wDPryO57I/18lDTHvpvNvn1Bl546xIGKkbIzKDxQG1Ncz728BtsVAMwKbrkLsj6Wz+rq3NXqoS1/k9mQaiGIcUU6Tilg0lwtUQbb/g6CEKh4=&#13;
+Fecha|2014-02-08T00:00:00&#13;
+Serie|&#13;
+Folio|&#13;
+cadenaOriginalTFD|||1.0|.1F5BC7B7-6228-4545-8C04-268B9E0D7D4A|2014-02-08T21:57:40|XyEL86erQDnJMxGpCZk9aWb81u7YtT0853DW08G8ZP/ac4Kd29o9tkZTk4n5xr3wDPryO57I/18lDTHvpvNvn1Bl546xIGKkbIzKDxQG1Ncz728BtsVAMwKbrkLsj6Wz+rq3NXqoS1/k9mQaiGIcUU6Tilg0lwtUQbb/g6CEKh4=|20001000000100005761||</invoice:notes>
+  <invoice:active>1</invoice:active>
+  <invoice:posttxn type="guid">3f08b668bf7347cc347ecbf68133859b</invoice:posttxn>
+  <invoice:postlot type="guid">85bf2bd2eec4843baee5829b88424539</invoice:postlot>
   <invoice:postacc type="guid">f7a212ea496542bb2a81dbcd5cc5f5a1</invoice:postacc>
   <invoice:currency>
     <cmdty:space>ISO4217</cmdty:space>
@@ -666,11 +847,38 @@ selloCFD|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8Y
 Fecha|2014-02-04T00:00:00&#13;
 Serie|A&#13;
 Folio|123&#13;
+cadenaOriginalTFD|||1.0|.05F6D108-D5F1-433D-B4E0-FDD3C6024EB1|2014-02-08T20:11:08|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8YcXzYRfpareY3fMS5BOxc/ljYhtXI6CZrKrkOrREYNcQUqLesM46LGxAmEORBRw8rIFSTGkcO5+CAk3/NZdvB404Obq20v8zcJxWI=|20001000000100005761||
+TransID|&#13;
+noCertificadoSAT|20001000000100005761&#13;
+FechaTimbrado|2014-02-08T20:11:08&#13;
+UUID|05F6D108-D5F1-433D-B4E0-FDD3C6024EB1&#13;
+selloSAT|zef3hWPt/REslGSVTkmafA0L9zxU8ZCNHCcqR5CvVaHz2asReSGe7VL9uCu9GaWmNV5AxzZGLeUZkEQb+ahVS/hX4826WJkJMR7dnVJRVe7+UzkpPrNU2PwdkbHZPBDjKFhyjNNJlSX8WLh9ZuK5osE1Yq40ohoN05ITWO/lAYg=&#13;
+selloCFD|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8YcXzYRfpareY3fMS5BOxc/ljYhtXI6CZrKrkOrREYNcQUqLesM46LGxAmEORBRw8rIFSTGkcO5+CAk3/NZdvB404Obq20v8zcJxWI=&#13;
+Fecha|2014-02-04T00:00:00&#13;
+Serie|A&#13;
+Folio|123&#13;
 cadenaOriginalTFD|||1.0|.05F6D108-D5F1-433D-B4E0-FDD3C6024EB1|2014-02-08T20:11:08|aES1EbhRQ8i/GqIPxMWfAZ5xOvwJxSZMuvX918edXzs3hd+mTIdqVE9vtoKaUmPHQSo0U8YcXzYRfpareY3fMS5BOxc/ljYhtXI6CZrKrkOrREYNcQUqLesM46LGxAmEORBRw8rIFSTGkcO5+CAk3/NZdvB404Obq20v8zcJxWI=|20001000000100005761||</invoice:notes>
   <invoice:active>1</invoice:active>
   <invoice:posttxn type="guid">dfa288f2aa0cd9d3e2bfd95cb5e4b565</invoice:posttxn>
   <invoice:postlot type="guid">6a2e01708c8aced20e1ebd559886c115</invoice:postlot>
   <invoice:postacc type="guid">f7a212ea496542bb2a81dbcd5cc5f5a1</invoice:postacc>
+  <invoice:currency>
+    <cmdty:space>ISO4217</cmdty:space>
+    <cmdty:id>MXN</cmdty:id>
+  </invoice:currency>
+</gnc:GncInvoice>
+<gnc:GncInvoice version="2.0.0">
+  <invoice:guid type="guid">f51aa59a70fe59bef6003bd23a1287cf</invoice:guid>
+  <invoice:id>126</invoice:id>
+  <invoice:owner version="2.0.0">
+    <owner:type>gncCustomer</owner:type>
+    <owner:id type="guid">d99780f9e5d56221a04d32bd4c5c8e2e</owner:id>
+  </invoice:owner>
+  <invoice:opened>
+    <ts:date>2014-02-08 00:00:00 -0600</ts:date>
+  </invoice:opened>
+  <invoice:billing_id>OC123</invoice:billing_id>
+  <invoice:active>1</invoice:active>
   <invoice:currency>
     <cmdty:space>ISO4217</cmdty:space>
     <cmdty:id>MXN</cmdty:id>
