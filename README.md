@@ -15,7 +15,7 @@ El siguiente codigo descarga la aplicacion, y timbra la factura con el id 200 en
 
     wget https://codeload.github.com/sebastianavina/gnucash-cfdi/zip/master -O gnucash-cfdi-master.zip
     unzip gnucash-cfdi-master.zip -d ./
-    cd ./gnucash-cfd-master/
+    cd ./gnucash-cfdi-master/
     echo "200" | python timbrador.py
 
 Hay que editar el archivo timbrador.py para cambiar la ubicacion del archivo (o la url de conexion) que usen para su sitema gnucash y hay que editar factura.py para alimentar los datos de su empresa. Tambien pueden editar mail.py con los datos de su correo para no estarlos alimentando cada vez que timbren una factura para que la envie el cliente.
