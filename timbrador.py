@@ -3,13 +3,8 @@
 from facturacion_moderna import facturacion_moderna
 from datetime import datetime
 import base64
-from M2Crypto import RSA
-from lxml import etree as ET
-import sha
-import os
-import re
 
-debug = True
+debug = False
 
 import gnucash
 from gnucash.gnucash_business import Customer, Employee, Vendor, Job, \
