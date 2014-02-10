@@ -15,6 +15,7 @@ from factura import Factura
 from mail import mail
 
 input_url = "./gnucash/prueba.gnucash"
+#session = Session('mysql://USER:PASSWORD <at> localhost/gnucash')
 
 try:
     session = gnucash.Session(input_url,ignore_lock=True)
